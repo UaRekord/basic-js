@@ -14,11 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 function deleteDigit(n) {
   let arr = n.toString().split('');
   let myIndex = arr.indexOf(Math.min(...arr).toString());
-  if (+arr[0] < +arr[1]) {
-    arr.shift();
-  } else {
-  arr.splice(myIndex,1);
-}
+  (+arr[0] < +arr[1]) ? arr.shift() : arr.splice(myIndex,1);
 return +arr.join('');
   // remove line with error and write your code here
 }
