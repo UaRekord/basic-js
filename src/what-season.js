@@ -19,10 +19,11 @@ function getSeason(date) {
   if (typeof(inputDate) === 'string' || isNaN(Date.parse(inputDate))) {
     throw new Error('Invalid date!');
   }
-
-    if (!inputDate.toISOString()) {
-     throw new Error('Invalid date!');
-    }
+  try {
+    inputDate.toDateString();
+  } catch {
+    throw Error('Invalid date!');
+  }
 
   let month = inputDate.getMonth();
   if (month === 11 || month >=0 && month < 2) {
